@@ -1,0 +1,7 @@
+username: test@qq.com
+key: APIKEY
+month: 24
+thread: 3000
+timeout: 10
+resultdetail: false
+proxy:
