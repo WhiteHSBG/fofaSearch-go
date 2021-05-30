@@ -94,10 +94,9 @@ func (f *fofa) parseResult(data []byte) *rst  {
 
 func (f *fofa) httpClient(queryString string,after string,befor string) []byte {
 	f.query=fmt.Sprintf(queryString+"&& after=\"%s\" && before=\"%s\" && is_honeypot=false",after,befor)
-	px,err:=url.Parse("http://127.0.0.1:8099")
+
 	hc:=http.Client{
 		Transport:     &http.Transport{
-			Proxy: http.ProxyURL(px),
 		},
 		CheckRedirect: nil,
 		Jar:           nil,
