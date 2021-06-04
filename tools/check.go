@@ -1,6 +1,7 @@
 package tools
 
 import (
+	"crypto/tls"
 	"fmt"
 	"net/http"
 	"os"
@@ -108,6 +109,12 @@ func (c *checker) curl() {
 		}
 	}else {
 		hc=http.Client{
+			Transport: &http.Transport{
+				IdleConnTimeout:     15 * time.Second,
+				TLSClientConfig:     &tls.Config{InsecureSkipVerify: true},
+				TLSHandshakeTimeout: 5 * time.Second,
+				DisableKeepAlives:   false,
+			},
 			Timeout:   time.Duration(timeout)*time.Second,
 		}
 	}

@@ -76,6 +76,7 @@ func (f *fofa) parseResult(data []byte) *rst  {
 	fmt.Printf("获取数据: %v 条\n",len(r1.Relst))
 
 	for _,rlst:= range r1.Relst{
+
 		ip:=rlst[0]
 		port:=rlst[1]
 		title:=rlst[2]
